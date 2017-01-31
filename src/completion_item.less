@@ -1,0 +1,71 @@
+@import "public/colors";
+@import "public/base";
+
+@height: 28px;
+@padding-left: 0.5%;
+@left-width: 15%;
+
+.cVim-completion-item,
+.cVim-completion-item .cVim-full,
+.cVim-completion-item .cVim-left,
+.cVim-completion-item .cVim-right {
+  #base > .bar-and-item(18px, arial sans-serif) !important;
+
+  display: block;
+  float: left;
+  width: 100%;
+  height: @height;
+  padding: 0 0 0 @padding-left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.cVim-completion-item {
+  width: 100%;
+
+  .cVim-left, .cVim-right {
+    float: left;
+    width: @left-width;
+    padding: 0;
+    margin: 0;
+    line-height: @height;
+  }
+
+  .cVim-left {
+    padding: 0 0 0 @padding-left;
+    height: @height;
+  }
+
+  .cVim-right {
+    width: 100% - @left-width - 2 * @padding-left;
+  }
+
+  &:nth-child(even) {
+    background-color: @background-color-even;
+
+    .cVim-left, .cVim-right {
+      color: @font-color-even;
+    }
+  }
+
+  &:nth-child(odd) {
+    background-color: @background-color-odd;
+
+    .cVim-left, .cVim-right {
+      color: @font-color-odd;
+    }
+  }
+
+  &[active] {
+    width: 100%;
+    background-color: @background-color-item-selectrd;
+
+    .cVim-left, .cVim-right {
+      font-weight: bold;
+      font-size: @font-size * 1.4 !important;
+      background-color: @background-color-selected;
+      color: @font-color-selected;
+    }
+  }
+}
