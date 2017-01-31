@@ -1,0 +1,66 @@
+@import "public/colors";
+@import "public/base";
+
+
+
+@width: 2%;
+@left: 10%;
+@height: 20px;
+@opacity: 0.9;
+@offset-left-input: 1.5;
+
+#cVim-command-bar,
+#cVim-command-bar-input,
+#cVim-command-bar-mode,
+#cVim-command-bar-search-results {
+  #base > .bar-and-item(@font-size, arial sans-serif) !important;
+}
+
+#cVim-command-bar {
+  position: fixed;
+  display: none;
+  width: 100% - 2 * @left;
+  height: @height;
+  top: 0;
+  left: @left;
+  color: @font-color;
+  background-color: @background-color;
+  box-sizing: content-box;
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 1);
+  z-index: @z-index;
+  opacity: @opacity;
+}
+
+#cVim-command-bar-input {
+  position: absolute;
+  top: 0;
+  left: @width * @offset-left-input;
+  height: @height;
+  width: 100% - @width * @offset-left-input;
+  font-weight: bold;
+  color: @font-color;
+  background-color: @background-color;
+}
+
+#cVim-command-bar-mode {
+  display: block;
+  width: @width;
+  height: @height;
+  line-height: @height;
+  font-size: @font-size * 1.67 !important;
+  text-align: center;
+  color: @font-color-mode;
+  background-color: @background-color-mode;
+}
+
+#cVim-command-bar-search-results {
+  position: fixed;
+  width: 100% - 2 * @left - @width;
+  top: @height * 1.3 !important;
+  left: @left + @width;
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 1);
+  background-color: @background-color;
+  z-index: @z-index + 1;
+  opacity: @opacity;
+  overflow: hidden;
+}
