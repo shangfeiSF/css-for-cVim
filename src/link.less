@@ -1,7 +1,8 @@
+@import "public/colors";
 @import "public/base";
 
 #cVim-link-container, .cVim-link-hint {
-  #base > .bar-and-item(@font-size, arial sans-serif) !important;
+  #base > .font(@font-size, @font-family) !important;
 }
 
 #cVim-link-container {
@@ -11,26 +12,29 @@
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: @z-index + 1;
+  z-index: @z-index;
 }
 
 .cVim-link-hint {
   position: absolute;
-  color: #000000 !important;
-  background-color: #00ffff !important;
+  display: block !important;
+
+  color: @font-color-link-hint !important;
+  background-color: @background-color-link-hint !important;
+  border: 1px solid @border-color-link-hint;
+
   border-radius: 8px !important;
   padding: 2px 5px !important;
   font-size: 12px !important;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6) !important;
+
   font-weight: bold !important;
   text-transform: uppercase !important;
-  border: 1px solid #3d3d3d;
-  display: block !important;
   vertical-align: middle !important;
   text-align: center !important;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.55) !important;
-}
 
-.cVim-link-hint_match {
-  color: #757575;
-  text-transform: uppercase !important;
+  .cVim-link-hint_match {
+    color: @font-color-link-hint-match;
+    text-transform: uppercase !important;
+  }
 }

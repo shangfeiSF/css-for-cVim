@@ -1,66 +1,64 @@
 @import "public/colors";
 @import "public/base";
 
-
-
-@width: 2%;
-@left: 10%;
-@height: 20px;
+@bar-mode-width: 2%;
+@bar-left: 10%;
+@bar-height: 30px;
 @opacity: 0.9;
-@offset-left-input: 1.5;
+@box-shadow: 2px 3px 5px rgba(0, 0, 0, 1);
 
 #cVim-command-bar,
 #cVim-command-bar-input,
 #cVim-command-bar-mode,
 #cVim-command-bar-search-results {
-  #base > .bar-and-item(@font-size, arial sans-serif) !important;
+  #base > .font(@font-size, @font-family) !important;
 }
 
 #cVim-command-bar {
   position: fixed;
   display: none;
-  width: 100% - 2 * @left;
-  height: @height;
+  width: 100% - 2 * @bar-left;
+  height: @bar-height;
   top: 0;
-  left: @left;
-  color: @font-color;
-  background-color: @background-color;
+  left: @bar-left;
   box-sizing: content-box;
-  box-shadow: 2px 3px 5px rgba(0, 0, 0, 1);
+  box-shadow: @box-shadow;
   z-index: @z-index;
   opacity: @opacity;
 }
 
 #cVim-command-bar-input {
   position: absolute;
+  width: 100% - @bar-mode-width;
+  height: @bar-height;
   top: 0;
-  left: @width * @offset-left-input;
-  height: @height;
-  width: 100% - @width * @offset-left-input;
+  left: @bar-mode-width;
+  padding: 1%;
+  line-height: @bar-height;
+  font-size: @font-size * 1.5 !important;
   font-weight: bold;
-  color: @font-color;
-  background-color: @background-color;
+  color: @font-color-bar-input;
+  background-color: @background-color-bar-input;
 }
 
 #cVim-command-bar-mode {
   display: block;
-  width: @width;
-  height: @height;
-  line-height: @height;
-  font-size: @font-size * 1.67 !important;
+  width: @bar-mode-width;
+  height: @bar-height;
+  line-height: @bar-height;
+  font-size: @font-size * 1.7 !important;
   text-align: center;
-  color: @font-color-mode;
-  background-color: @background-color-mode;
+  color: @font-color-bar-mode;
+  background-color: @background-color-bar-mode;
 }
 
 #cVim-command-bar-search-results {
   position: fixed;
-  width: 100% - 2 * @left - @width;
-  top: @height * 1.3 !important;
-  left: @left + @width;
-  box-shadow: 2px 3px 5px rgba(0, 0, 0, 1);
-  background-color: @background-color;
-  z-index: @z-index + 1;
+  width: 100% - 2 * @bar-left - @bar-mode-width;
+  top: @bar-height * 1.3 !important;
+  left: @bar-left + @bar-mode-width;
+  box-shadow: @box-shadow;
+  z-index: @z-index;
   opacity: @opacity;
   overflow: hidden;
 }

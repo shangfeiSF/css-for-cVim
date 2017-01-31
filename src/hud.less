@@ -1,25 +1,29 @@
+@import "public/colors";
 @import "public/base";
 
 #cVim-hud, #cVim-status-bar {
-  #base > .bar-and-item(@font-size, arial sans-serif) !important;
+  #base > .font(@font-size, @font-family) !important;
 }
 
+@cVime-hud-width: 120px;
+@cVime-hud-height: 25px;
+
 #cVim-hud {
-  width: 120px;
-  height: 25px;
-  background-color: rgba(21, 187, 57, 0.9);
+  width: @cVime-hud-width;
+  height: @cVime-hud-height;
   padding-left: 5px;
+  background-color: @background-color-hud;
   position: fixed !important;
   transition: right 1s ease-out;
-  z-index: @z-index + 1;
+  z-index: @z-index;
 }
 
 #cVim-hud span {
   display: block !important;
-  width: 100%;
-  height: 25px;
-  color: #8f8f8f;
   font-weight: bold;
-  font-size: 18px;
-  line-height: 25px;
+  width: @cVime-hud-width;
+  height: @cVime-hud-height;
+  line-height: @cVime-hud-height;
+  color: @font-color-hud;
+  font-size: @font-size !important;
 }
