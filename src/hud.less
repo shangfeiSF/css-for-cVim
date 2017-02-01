@@ -5,10 +5,22 @@
   #base > .font(@font-size, @font-family) !important;
 }
 
-@cVime-hud-width: 120px;
-@cVime-hud-height: 25px;
+@cVime-hud-width: 15%;
+@cVime-hud-height: 30px;
+@duration: 0.9s;
+
+@-webkit-keyframes twinkling {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 #cVim-hud {
+  top: 0 !important;
+  left: 0 !important;
   width: @cVime-hud-width;
   height: @cVime-hud-height;
   padding-left: 5px;
@@ -20,10 +32,15 @@
 
 #cVim-hud span {
   display: block !important;
-  font-weight: bold;
-  width: @cVime-hud-width;
+  width: 100%;
   height: @cVime-hud-height;
   line-height: @cVime-hud-height;
   color: @font-color-hud;
   font-size: @font-size !important;
+  -webkit-animation: twinkling @duration infinite cubic-bezier(0.47, 0, 0.75, 0.72);
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
